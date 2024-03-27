@@ -1,0 +1,145 @@
+.moves-container {
+    background-image:url('../images/bg-triangle.svg');
+    background-position: center;
+    background-repeat:no-repeat;
+    display:grid;
+    grid-template-columns: repeat(2, 50%);
+    row-gap: 50px;
+    justify-content: center;
+    width:65%;
+    margin:90px auto 0 auto;
+}
+
+.move {
+    width:180px;
+    height:180px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius:50%;
+    box-shadow:inset 0 8px 0 #dfdfdf,
+    inset 0 -8px 0 #dfdfdf;
+    justify-self: center;
+    cursor:pointer;
+}
+
+.paper {
+    border:21px solid $paper-color;
+}
+
+.scissors {
+    border:21px solid $scissors-color;
+}
+
+.rock {
+    border:21px solid $rock-color;
+    grid-column:span 2;
+}
+
+.game-result {
+    grid-template-columns: repeat(3,33.33%);
+    width:80%
+}
+
+.your-pick, .computer-pick {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:40px;
+
+    & h3 {
+        color:#fff;
+        font-size:1.5rem;
+    }
+}
+
+.winner {
+    box-shadow:0 0 0 40px rgba(255, 255, 255, 0.07),
+    0 0 0 80px rgba(255, 255, 255, 0.05),
+    0 0 0 130px rgba(255, 255, 255, 0.03);
+}
+
+.result-container {
+    justify-self:center;
+    align-self:center;
+    text-align:center;
+
+    & h3 {
+        font-size:2.5rem;
+        color:#fff;
+        margin-bottom:10px;
+    }
+
+    & .play-again {
+        padding:.6em 2.5em;
+        font-size:.95rem;
+        border-radius:5px;
+        border:none;
+        font-weight:700;
+        cursor:pointer;
+        &:hover {
+            color:$rock-color;
+        }
+    }
+}
+
+@media (max-width:380px){
+    .moves-container {
+        width:100%;
+        background-size:70%;
+        margin-top:50px;
+    }
+    .move {
+        width:115px;
+        height:115px;
+        border-width:15px;
+        justify-self: start;
+
+        & img {
+            width:40px;
+        }
+    }
+    .rock {
+        justify-self:center;
+    }
+    .scissors {
+        justify-self: end;
+    }
+    .your-pick, .computer-pick {
+        gap:20px;
+        & h3 {
+            font-size:.9rem;
+            order:2;
+        }
+    }
+    .result-container {
+        order:3;
+        grid-column:span 2;
+        justify-self:center;
+        & h3 {
+            font-size:3rem;
+        }
+    
+        & .play-again {
+            padding:.8em 3.5em;
+            &:hover {
+                color:black;
+            }
+        }
+    }
+    .move {
+        box-shadow:inset 0 5px 0 #dfdfdf,
+        inset 0 -5px 0 #dfdfdf;
+    }
+    .winner {
+        box-shadow:0 0 0 20px rgba(255, 255, 255, 0.07),
+        0 0 0 40px rgba(255, 255, 255, 0.05),
+        0 0 0 65px rgba(255, 255, 255, 0.03),
+        inset 0 5px 0 #dfdfdf,
+        inset 0 -5px 0 #dfdfdf;
+    }
+    .game-result {
+        grid-template-columns: repeat(2, 50%);
+    }
+}
